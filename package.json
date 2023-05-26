@@ -1,0 +1,22 @@
+{
+  "name": "graphql-api-ts-ddd-clean-architecture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:typescript": "tsc",
+    "watch:typescript": "tsc --watch --preserveWatchOutput",
+    "start": "npm run build:typescript && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "Petar Ivaylov Ivanov",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "4.7.1",
+    "graphql": "16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.2.4",
+    "typescript": "5.0.4"
+  }
+}
