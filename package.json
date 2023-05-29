@@ -7,8 +7,10 @@
     "build:graphql:schema": "node scripts/buildSchema.js",
     "build:graphql": "run-s build:graphql:* && mkdir -p dist && cp src/*.graphql dist/ && graphql-codegen --config codegen.yml",
     "build:typescript": "tsc",
+    "watch:graphql": "nodemon --watch src --ext graphql --ignore \"*.generated.*\" --exec \"npm run build:graphql\"",
     "watch:typescript": "tsc --watch --preserveWatchOutput",
-    "start": "npm run build:typescript && node ./dist/index.js"
+    "start:node": "wait-on dist/index.js && nodemon --ext js,graphql,json dist/index.js",
+    "start": "rm -fr dist && mkdir -p dist && run-p -l watch:* start:node"
   },
   "keywords": [],
   "author": "Petar Ivaylov Ivanov",
@@ -25,7 +27,9 @@
     "@graphql-tools/merge": "9.0.0",
     "@tsconfig/node16": "1.0.4",
     "@types/node": "20.2.4",
+    "nodemon": "2.0.22",
     "npm-run-all": "4.1.5",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "wait-on": "7.0.1"
   }
 }
