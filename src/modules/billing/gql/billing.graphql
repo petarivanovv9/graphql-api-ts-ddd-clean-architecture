@@ -1,6 +1,6 @@
-type User {
+type Account {
   """
-  Return the card payment profiles associated with the User.
+  Return the card payment profiles associated with the Account.
   """
   cardPaymentProfiles: [CardPaymentProfile!]!
 }

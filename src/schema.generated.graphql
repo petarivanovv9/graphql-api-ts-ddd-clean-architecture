@@ -8,8 +8,6 @@ type User {
   name: String!
   email: String!
   account: Account!
-  """Return the card payment profiles associated with the User."""
-  cardPaymentProfiles: [CardPaymentProfile!]!
 }
 
 type Account {
@@ -17,6 +15,8 @@ type Account {
   email: String!
   company: String
   vatNumber: String
+  """Return the card payment profiles associated with the Account."""
+  cardPaymentProfiles: [CardPaymentProfile!]!
 }
 
 type CardPaymentProfile {

@@ -9,3 +9,4 @@ generates:
       typesPrefix: Gql
       mappers:
         User: ./modules/account/api#UserDto
+        Account: ./modules/account/api#AccountDto
