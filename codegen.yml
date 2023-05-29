@@ -7,3 +7,5 @@ generates:
     config:
       useIndexSignature: true
       typesPrefix: Gql
+      mappers:
+        User: ./modules/account/api#UserDto

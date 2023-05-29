@@ -9,12 +9,7 @@ const viewer = {
 const resolvers: GqlResolvers = {
   Query: {
     viewer: async () => {
-      console.log("...viewer...");
-
-      // TODO:
-      // Add custom model for the User type (mapper),
-      // since TS complains that there're no `cardPaymentProfiles`
-      return viewer as any;
+      return viewer;
     },
   },
 };

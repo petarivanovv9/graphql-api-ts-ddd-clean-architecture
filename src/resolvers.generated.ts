@@ -1,4 +1,5 @@
 import { GraphQLResolveInfo } from 'graphql';
+import { UserDto } from './modules/account/api';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -114,7 +115,7 @@ export type GqlResolversTypes = ResolversObject<{
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
-  User: ResolverTypeWrapper<GqlUser>;
+  User: ResolverTypeWrapper<UserDto>;
 }>;
 
 /** Mapping between all available schema types and the resolvers parents */
@@ -124,7 +125,7 @@ export type GqlResolversParentTypes = ResolversObject<{
   ID: Scalars['ID']['output'];
   Query: {};
   String: Scalars['String']['output'];
-  User: GqlUser;
+  User: UserDto;
 }>;
 
 export type GqlCardPaymentProfileResolvers<ContextType = any, ParentType extends GqlResolversParentTypes['CardPaymentProfile'] = GqlResolversParentTypes['CardPaymentProfile']> = ResolversObject<{
