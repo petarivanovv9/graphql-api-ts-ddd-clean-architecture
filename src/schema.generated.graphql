@@ -7,6 +7,14 @@ type User {
   id: ID!
   name: String!
   email: String!
+  """Return the card payment profiles associated with the User."""
+  cardPaymentProfiles: [CardPaymentProfile!]!
+}
+
+type CardPaymentProfile {
+  id: ID!
+  firstName: String
+  lastName: String
 }
 
 schema {
