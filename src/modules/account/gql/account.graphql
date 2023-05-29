@@ -9,4 +9,17 @@ type User {
   id: ID!
   name: String!
   email: String!
+
+  account: Account!
+}
+
+type Account {
+  id: ID!
+  email: String!
+  company: String
+  vatNumber: String
+
+  # TODO: implement
+  # Returns the users which are part of the Account.
+  # users: [User!]!
 }

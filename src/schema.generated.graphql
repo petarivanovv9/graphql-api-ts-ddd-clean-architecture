@@ -7,8 +7,16 @@ type User {
   id: ID!
   name: String!
   email: String!
+  account: Account!
   """Return the card payment profiles associated with the User."""
   cardPaymentProfiles: [CardPaymentProfile!]!
+}
+
+type Account {
+  id: ID!
+  email: String!
+  company: String
+  vatNumber: String
 }
 
 type CardPaymentProfile {
