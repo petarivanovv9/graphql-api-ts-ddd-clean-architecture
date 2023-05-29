@@ -1,18 +1,11 @@
 import { GqlResolvers, GqlModule } from "../../gqlModule";
-
-const viewerCardPaymentProfiles = [
-  {
-    id: "GQL-ID-CPM-1",
-    firstName: "Random",
-  },
-];
+import { CardPaymentProfileQueries } from "../domain/queries/cardPaymentProfileQueries";
 
 const resolvers: GqlResolvers = {
-  User: {
-    cardPaymentProfiles: async (user) => {
-      console.log("...cardPaymentProfiles...", user);
-
-      return viewerCardPaymentProfiles;
+  Account: {
+    cardPaymentProfiles: async (account) => {
+      const cardPaymentProfileQueries = new CardPaymentProfileQueries();
+      return cardPaymentProfileQueries.getByAccount(account.email);
     },
   },
 };
