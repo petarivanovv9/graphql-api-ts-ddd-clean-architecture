@@ -1,0 +1,1 @@
+export { gqlModule } from "./resolvers";
