@@ -3,10 +3,11 @@ import * as path from "path";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
-import { gqlModule as accountGqlModule } from "./modules/account/gql";
 import { GqlModule } from "./modules/gqlModule";
+import { gqlModule as accountGqlModule } from "./modules/account/gql";
+import { gqlModule as billingGqlModule } from "./modules/billing/gql";
 
-const gqlModules: GqlModule[] = [accountGqlModule];
+const gqlModules: GqlModule[] = [accountGqlModule, billingGqlModule];
 
 const mergedResolvers = [...gqlModules.map((x) => x.resolvers)];
 
