@@ -1,0 +1,14 @@
+type Query {
+  """Returns the current logged in user."""
+  viewer: User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+}
+
+schema {
+  query: Query
+}
