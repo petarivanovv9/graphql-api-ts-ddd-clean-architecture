@@ -2,7 +2,7 @@
   "name": "graphql-api-ts-ddd-clean-architecture",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "build:typescript": "tsc",
     "watch:typescript": "tsc --watch --preserveWatchOutput",
@@ -16,6 +16,7 @@
     "graphql": "16.6.0"
   },
   "devDependencies": {
+    "@tsconfig/node16": "1.0.4",
     "@types/node": "20.2.4",
     "typescript": "5.0.4"
   }
