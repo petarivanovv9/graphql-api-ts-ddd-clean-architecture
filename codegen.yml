@@ -6,3 +6,5 @@ generates:
       - "typescript-resolvers"
     config:
       useIndexSignature: true
+      noSchemaStitching: true
+      typesPrefix: Gql
