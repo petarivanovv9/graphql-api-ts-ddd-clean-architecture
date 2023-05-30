@@ -1,1 +1,1 @@
-export { gqlModule } from "./resolvers";
+export { gqlModule } from './resolvers';

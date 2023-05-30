@@ -1,13 +1,13 @@
-import { GqlResolvers, GqlModule } from "../../gqlModule";
-import { UserDto } from "../api";
-import { AccountService } from "../domain/services/accountService";
+import { GqlResolvers, GqlModule } from '../../gqlModule';
+import { UserDto } from '../api';
+import { AccountService } from '../domain/services/accountService';
 
 const viewerData: UserDto = {
-  id: "GQL-ID-U-1",
-  name: "Random User",
-  email: "random@foocompany.org",
+  id: 'GQL-ID-U-1',
+  name: 'Random User',
+  email: 'random@foocompany.org',
 
-  accountId: "GQL-ID-A-1",
+  accountId: 'GQL-ID-A-1',
 };
 
 const resolvers: GqlResolvers = {

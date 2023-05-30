@@ -10,3 +10,6 @@ generates:
       mappers:
         User: ./modules/account/api#UserDto
         Account: ./modules/account/api#AccountDto
+hooks:
+  afterOneFileWrite:
+    - prettier --write

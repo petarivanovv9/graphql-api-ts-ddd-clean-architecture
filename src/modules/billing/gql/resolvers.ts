@@ -1,5 +1,5 @@
-import { GqlResolvers, GqlModule } from "../../gqlModule";
-import { CardPaymentProfileQueries } from "../domain/queries/cardPaymentProfileQueries";
+import { GqlResolvers, GqlModule } from '../../gqlModule';
+import { CardPaymentProfileQueries } from '../domain/queries/cardPaymentProfileQueries';
 
 const resolvers: GqlResolvers = {
   Account: {

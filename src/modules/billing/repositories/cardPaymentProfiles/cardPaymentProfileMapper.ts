@@ -1,4 +1,4 @@
-import { CardPaymentProfile } from "../../domain/models/cardPaymentProfile";
+import { CardPaymentProfile } from '../../domain/models/cardPaymentProfile';
 
 interface PaymentSource {
   id: string;
@@ -14,10 +14,10 @@ export class CardPaymentProfileMapper {
 
     return CardPaymentProfile.create(
       {
-        firstName: card.first_name ?? "",
-        lastName: card.last_name ?? "",
+        firstName: card.first_name ?? '',
+        lastName: card.last_name ?? '',
       },
-      paymentSource.id
+      paymentSource.id,
     );
   }
 }

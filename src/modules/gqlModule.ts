@@ -1,4 +1,4 @@
-import { GqlResolvers } from "../resolvers.generated";
+import { GqlResolvers } from '../resolvers.generated';
 
 export type GqlModule = {
   resolvers: GqlResolvers;

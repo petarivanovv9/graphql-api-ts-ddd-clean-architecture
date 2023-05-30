@@ -1,0 +1,5 @@
+node_modules
+dist
+
+# Do net check files that are ignored for git. Useful for small tests.
+*.no-git.*

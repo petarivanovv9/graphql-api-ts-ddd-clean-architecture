@@ -1,18 +1,16 @@
-import { CardPaymentProfileMapper } from "./cardPaymentProfileMapper";
+import { CardPaymentProfileMapper } from './cardPaymentProfileMapper';
 
 const cardPaymentProfilesData = [
   {
-    id: "GQL-ID-CPM-1",
+    id: 'GQL-ID-CPM-1',
     card: {
-      first_name: "Random",
+      first_name: 'Random',
     },
-    accountEmail: "big-boss@foocompany.org",
+    accountEmail: 'big-boss@foocompany.org',
   },
 ];
 
 export class CardPaymentProfileRepo {
-  constructor() {}
-
   async getByAccount(accountEmail: string) {
     const cardPaymentProfiles = cardPaymentProfilesData
       .filter((x) => x.accountEmail === accountEmail)

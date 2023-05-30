@@ -1,4 +1,4 @@
-import { CardPaymentProfileRepo } from "../../repositories/cardPaymentProfiles/cardPaymentProfileRepo";
+import { CardPaymentProfileRepo } from '../../repositories/cardPaymentProfiles/cardPaymentProfileRepo';
 
 export class CardPaymentProfileQueries {
   private cardPaymentProfileRepo;
@@ -9,7 +9,7 @@ export class CardPaymentProfileQueries {
 
   async getByAccount(accountNumber: string) {
     const cardPaymentProfiles = await this.cardPaymentProfileRepo.getByAccount(
-      accountNumber
+      accountNumber,
     );
 
     return cardPaymentProfiles;

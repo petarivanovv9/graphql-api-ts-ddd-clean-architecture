@@ -5,6 +5,7 @@ interface CardPaymentProfileProps {
 
 export class CardPaymentProfile {
   #id: string;
+
   #props: CardPaymentProfileProps;
 
   constructor(props: CardPaymentProfileProps, id: string) {
