@@ -10,6 +10,15 @@ The main business scenario we have in our example is managing billing related st
 
 Our goal is to design and create a highly scalable and maintainable API with GraphQL around the above-mentioned business domain.
 
+## Domains
+
+- Account:
+
+  - Account & User entities (subdomains)
+
+- Billing:
+  - Card Payment Profile entity (subdomain)
+
 ## Used Technologies and Tools:
 
 - [GraphQL](https://graphql.org/)
@@ -34,6 +43,21 @@ Our goal is to design and create a highly scalable and maintainable API with Gra
 - Clean-Architecture (aka Layered Architecture)
 
   - => better separation of concerns, testability, maintainability
+
+## Notes
+
+Since the Account Domain is simpler, there's no need to introduce DDD and/or Clean Architecture. We can follow the Transaction Script Pattern.
+
+However, the Billing Domain is crucial for our business and will evolve a lot in the future, so here we will embrace DDD and Clean Architecture.
+
+There's no need to implement DDD and Clean Architecture on 100%. Make it suits your case, experience and needs.
+
+In this way, we can see:
+
+- the difference between the two domains
+- the cost of having and not having the mentioned patterns
+
+In the end, it's all about trade-offs.
 
 # High-Level Architecture Overview
 
