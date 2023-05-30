@@ -31,7 +31,8 @@
     {
       "files": ["./src/*.generated.ts"],
       "rules": {
-        "@typescript-eslint/ban-types": 0
+        "@typescript-eslint/ban-types": 0,
+        "import/newline-after-import": 0
       }
     }
   ]
