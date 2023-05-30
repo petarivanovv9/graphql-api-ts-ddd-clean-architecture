@@ -1,7 +1,8 @@
 import { GqlResolvers, GqlModule } from "../../gqlModule";
+import { UserDto } from "../api";
 import { AccountService } from "../domain/services/accountService";
 
-const viewer = {
+const viewerData: UserDto = {
   id: "GQL-ID-U-1",
   name: "Random User",
   email: "random@foocompany.org",
@@ -12,7 +13,7 @@ const viewer = {
 const resolvers: GqlResolvers = {
   Query: {
     viewer: async () => {
-      return viewer;
+      return viewerData;
     },
   },
 
