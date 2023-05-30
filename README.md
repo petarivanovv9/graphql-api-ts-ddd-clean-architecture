@@ -70,7 +70,9 @@ Define the interface that other modules would use it to communicate with it.
 
 Entities are at the core of a Domain Model. Entities are plan JavaScript objects that do not have dependencies on anything else. Entities represent a concept in the domain that is identified by its id.
 
-Domain Services encapsulate domain logic. Domain Services do not have identity or state. Their responsibility is to orchestrate business logic using entities.
+Value Objects are part of the same layer. They represent concepts that do not have a conceptual identity. Value Objects are immutable. Eg: billing address.
+
+Domain Services encapsulate domain logic and concepts that are not naturally modelled as Value Objects or Entities in our model. Domain Services do not have identity or state. Their responsibility is to orchestrate business logic using entities and value objects.
 
 #### Mutations
 
@@ -82,7 +84,7 @@ Queries map to GraphQL queries. They can be implemented as separate classes or a
 
 #### Services
 
-Application Services, like Mutation and Queries, operate on a higher level of abstraction. They use the Repositories to load and persist "stuff", they use Domain Services and other external (or Module) services to fulfil their business use cases.
+Application Services, like Mutation and Queries, operate on a higher level of abstraction. They use the Repositories to load and persist Aggregates, they use Domain Services and other external (or Module) services to fulfil their business use cases.
 
 ### GraphQL - schema definition and resolvers.
 
@@ -91,6 +93,16 @@ structure of our GQL types so the Resolvers should be relatively simple and most
 
 ### Repositories
 
-Repositories, with the help of mappers, load "stuff" and persist changes to them. In the Domain Model Pattern, the DB access is abstracted as an infrastructure (that’s why you can find the DB access in the outermost layer).
+Repositories, with the help of mappers, load Aggregates and persist changes to them. In the Domain Model Pattern, the DB access is abstracted as an infrastructure (that’s why you can find the DB access in the outermost layer).
 
 Additionally, Repositories can be used for queries that load Entities.
+
+# Other Terms
+
+- Aggregates
+
+Aggregates are a collection of entities and value objects that are bound together by an aggregate root. The aggregate root is the thing that we refer to for lookups. No members from within the aggregate boundary can be referred to directly from anything external to the aggregate. Aggregates ensure consistency and define transactional concurrency boundaries.
+
+- Aggregate Root
+
+Aggregate Root represents a cluster of associated objects treated as a single unit. It is responsible for enforcing consistency and maintaining the integrity of the aggregate's internal state. The aggregate root is the entry point for accessing and modifying the objects within the aggregate.
