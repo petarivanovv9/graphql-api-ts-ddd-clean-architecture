@@ -1,10 +1,14 @@
 # An example of a GraphQL API with Apollo-Server and TypeScript by using principles like Domain-Driven Design and Clean Architecture.
 
-For our example, let's consider we're a Cloud Service Provider like Digital Ocean, AWS, etc. We provide developers cloud infrastructure-as-a-service platforms. For instance, if someone wants a cloud server to host their application, he comes to us.
+Since that's an example, we should have a specific business case to build our software around it.
+
+Let's consider we're a Cloud Service Provider like Digital Ocean, AWS, etc. We provide developers cloud infrastructure-as-a-service platforms. For instance, if someone wants a cloud server to host their application, he comes to us.
 
 We allow only SMBs to register on our website. Each company can have multiple employees.
 
-The main business scenario we have in our example is managing billing related stuff like adding card payment methods, updating billing addresses, invoicing, etc.
+The main business scenario we have in our example is managing billing related stuff like adding card payment methods, updating billing addresses, invoicing, etc. That's the most crucial area of our business.
+
+Our goal is to design and create a highly scalable and maintainable API with GraphQL around the above-mentioned business domain.
 
 ## Used Technologies and Tools:
 
