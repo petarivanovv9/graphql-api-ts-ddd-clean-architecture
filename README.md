@@ -22,8 +22,18 @@ Our goal is to design and create a highly scalable and maintainable API with Gra
 ## Architectural Principles:
 
 - Domain-Driven Design
+
   - => Better Subdomain Organization
+
+  Code that acts as a software representation of the business is more correct, more tolerant to change, has less inaccurate and undesirable side-effects, and can be understood by everyone.
+
+  - Ubiquitous Language
+
+  - Bounded Contexts
+
 - Clean-Architecture (aka Layered Architecture)
+
+  - => better separation of concerns, testability, maintainability
 
 # High-Level Architecture Overview
 
