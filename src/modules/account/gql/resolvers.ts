@@ -1,6 +1,6 @@
 import { GqlResolvers, GqlModule } from '../../gqlModule';
 import { UserDto } from '../api';
-import { AccountService } from '../domain/services/accountService';
+import { AccountQueries } from '../domain/queries/accountQueries';
 
 const viewerData: UserDto = {
   id: 'GQL-ID-U-1',
@@ -19,8 +19,8 @@ const resolvers: GqlResolvers = {
 
   User: {
     account: async (user, _, __) => {
-      const accountService = new AccountService();
-      const account = await accountService.getAccount(user.accountId);
+      const accountQueries = new AccountQueries();
+      const account = await accountQueries.getAccount(user.accountId);
       return account;
     },
   },

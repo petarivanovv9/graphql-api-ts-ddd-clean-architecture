@@ -13,11 +13,14 @@ const accountsData = [
   },
 ];
 
-export class AccountService {
-  // Note: could be static, but ...
+export class AccountQueries {
+  // Note: could be static.
   async getAccount(id: string) {
     //
     // Transaction Script Pattern
+    // - directly fetching the data (ex: from Database, etc.)
+    // - doing some computation / logic
+    // - etc.
     //
     const account = accountsData.find((acc) => acc.id === id);
 
