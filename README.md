@@ -1,4 +1,4 @@
-# An example of a GraphQL API with Apollo-Server and TypeScript by using principles like Domain-Driven Design and Clean Architecture.
+# An example of a GraphQL API with TypeScript and Apollo-Server by using Domain-Driven Design and Clean Architecture principles.
 
 Since that's an example, we should have a specific business case to build our software around it.
 
