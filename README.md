@@ -46,6 +46,8 @@ Our goal is to design and create a highly scalable and maintainable API with Gra
 
   - => better separation of concerns, testability, maintainability
 
+> 💡 In the real world, developing a project from scratch by embracing all "super duper" practices, concepts and technologies is an overkill, in my opinion. Better, strive for incremental improvements by tailoring the "techy" methods and making them suits your needs and experience.
+
 ## Notes
 
 Since the Account Domain is simpler, there's no need to introduce DDD and/or Clean Architecture. We can follow the Transaction Script Pattern.
