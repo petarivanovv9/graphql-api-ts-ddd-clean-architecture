@@ -10,6 +10,8 @@ The main business scenario we have in our example is managing billing related st
 
 Our goal is to design and create a highly scalable and maintainable API with GraphQL around the above-mentioned business domain.
 
+> 💡 We're modeling software to solve complex real life business problems.
+
 ## Domains
 
 - Account:
@@ -63,6 +65,8 @@ In the end, it's all about trade-offs.
 
 Most of the concepts explained here are illustrated under the `Billing` Domain.
 
+In our example, I haven't abstracted the "Aggregate / Aggregate Root" concepts since I want to keep the example as simple as possible for now.
+
 The code example in progress 🚧. I will be extending it step by step in the future.
 
 🔔 Subscribe to get notified or follow me on [LinkedIn](https://www.linkedin.com/in/petarivanovv9) for the newest updates.
@@ -72,6 +76,7 @@ The code example in progress 🚧. I will be extending it step by step in the fu
 - [ ] Add Dependency Injection - use `tsyringe`
 - [ ] Add `jest` and implement the missing tests
 - [ ] Extend the case study and domains with more examples and illustrations
+- [ ] Add more abstraction - Aggregate / Aggregate Root / Use Cases, etc.
 
 # High-Level Architecture Overview
 
@@ -138,6 +143,8 @@ Additionally, Repositories can be used for queries that load Entities.
 # Other Terms
 
 - Aggregates
+
+> An "aggregate" is a cluster of associated objects that we treat as a unit for the purpose of data changes." - Evans. 126
 
 Aggregates are a collection of entities and value objects that are bound together by an aggregate root. The aggregate root is the thing that we refer to for lookups. No members from within the aggregate boundary can be referred to directly from anything external to the aggregate. Aggregates ensure consistency and define transactional concurrency boundaries.
 
