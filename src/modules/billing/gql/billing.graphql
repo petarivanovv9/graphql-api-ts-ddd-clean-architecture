@@ -15,6 +15,7 @@ type CardPaymentProfile {
   id: ID!
   firstName: String
   lastName: String
+  address: Address
 }
 
 input DeleteCardPaymentProfileInput {
@@ -24,4 +25,16 @@ input DeleteCardPaymentProfileInput {
 type DeleteCardPaymentProfilePayload {
   "Fake field so that we have a payload type for consistency."
   _noop: Boolean
+}
+
+type Address {
+  """
+  Note:
+  - `country` is string just for the example.
+  - It's better to have a concrete type, ex: `CountryCode` - 2-letter ISO 3166-2 country code
+  """
+  country: String!
+  address: String!
+  city: String!
+  zip: String!
 }

@@ -42,8 +42,22 @@ export type GqlAccount = {
   vatNumber?: Maybe<Scalars['String']['output']>;
 };
 
+export type GqlAddress = {
+  __typename?: 'Address';
+  address: Scalars['String']['output'];
+  city: Scalars['String']['output'];
+  /**
+   * Note:
+   * - `country` is string just for the example.
+   * - It's better to have a concrete type, ex: `CountryCode` - 2-letter ISO 3166-2 country code
+   */
+  country: Scalars['String']['output'];
+  zip: Scalars['String']['output'];
+};
+
 export type GqlCardPaymentProfile = {
   __typename?: 'CardPaymentProfile';
+  address?: Maybe<GqlAddress>;
   firstName?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   lastName?: Maybe<Scalars['String']['output']>;
@@ -193,6 +207,7 @@ export type DirectiveResolverFn<
 /** Mapping between all available schema types and the resolvers types */
 export type GqlResolversTypes = ResolversObject<{
   Account: ResolverTypeWrapper<AccountDto>;
+  Address: ResolverTypeWrapper<GqlAddress>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   CardPaymentProfile: ResolverTypeWrapper<GqlCardPaymentProfile>;
   DeleteCardPaymentProfileInput: GqlDeleteCardPaymentProfileInput;
@@ -207,6 +222,7 @@ export type GqlResolversTypes = ResolversObject<{
 /** Mapping between all available schema types and the resolvers parents */
 export type GqlResolversParentTypes = ResolversObject<{
   Account: AccountDto;
+  Address: GqlAddress;
   Boolean: Scalars['Boolean']['output'];
   CardPaymentProfile: GqlCardPaymentProfile;
   DeleteCardPaymentProfileInput: GqlDeleteCardPaymentProfileInput;
@@ -242,10 +258,26 @@ export type GqlAccountResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
+export type GqlAddressResolvers<
+  ContextType = any,
+  ParentType extends GqlResolversParentTypes['Address'] = GqlResolversParentTypes['Address'],
+> = ResolversObject<{
+  address?: Resolver<GqlResolversTypes['String'], ParentType, ContextType>;
+  city?: Resolver<GqlResolversTypes['String'], ParentType, ContextType>;
+  country?: Resolver<GqlResolversTypes['String'], ParentType, ContextType>;
+  zip?: Resolver<GqlResolversTypes['String'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
 export type GqlCardPaymentProfileResolvers<
   ContextType = any,
   ParentType extends GqlResolversParentTypes['CardPaymentProfile'] = GqlResolversParentTypes['CardPaymentProfile'],
 > = ResolversObject<{
+  address?: Resolver<
+    Maybe<GqlResolversTypes['Address']>,
+    ParentType,
+    ContextType
+  >;
   firstName?: Resolver<
     Maybe<GqlResolversTypes['String']>,
     ParentType,
@@ -304,6 +336,7 @@ export type GqlUserResolvers<
 
 export type GqlResolvers<ContextType = any> = ResolversObject<{
   Account?: GqlAccountResolvers<ContextType>;
+  Address?: GqlAddressResolvers<ContextType>;
   CardPaymentProfile?: GqlCardPaymentProfileResolvers<ContextType>;
   DeleteCardPaymentProfilePayload?: GqlDeleteCardPaymentProfilePayloadResolvers<ContextType>;
   Mutation?: GqlMutationResolvers<ContextType>;

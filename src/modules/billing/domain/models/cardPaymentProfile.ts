@@ -3,6 +3,9 @@ interface CardPaymentProfileProps {
   lastName: string;
 }
 
+//
+// CardPaymentProfile Entity
+//
 export class CardPaymentProfile {
   #id: string;
 
