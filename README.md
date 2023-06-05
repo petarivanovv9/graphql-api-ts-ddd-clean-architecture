@@ -59,6 +59,20 @@ In this way, we can see:
 
 In the end, it's all about trade-offs.
 
+### Regarding the Code - illustrations & examples
+
+Most of the concepts explained here are illustrated under the `Billing` Domain.
+
+The code example in progress 🚧. I will be extending it step by step in the future.
+
+🔔 Subscribe to get notified or follow me on [LinkedIn](https://www.linkedin.com/in/petarivanovv9) for the newest updates.
+
+#### What's upcoming in the code example:
+
+- [ ] Add Dependency Injection - use `tsyringe`
+- [ ] Add `jest` and implement the missing tests
+- [ ] Extend the case study and domains with more examples and illustrations
+
 # High-Level Architecture Overview
 
 The core principle of Clean Architecture is that dependencies can only point inwards.
