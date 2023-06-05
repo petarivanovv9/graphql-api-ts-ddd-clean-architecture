@@ -3,8 +3,10 @@ import { CardPaymentProfileRepo } from '../../repositories/cardPaymentProfiles/c
 export class CardPaymentProfileQueries {
   private cardPaymentProfileRepo;
 
-  constructor() {
-    this.cardPaymentProfileRepo = new CardPaymentProfileRepo();
+  // Note: should use Dependency Injection
+  // so we can inject the needed dependencies easily
+  constructor(cardPaymentProfileRepo: CardPaymentProfileRepo) {
+    this.cardPaymentProfileRepo = cardPaymentProfileRepo;
   }
 
   async getByAccount(accountNumber: string) {
