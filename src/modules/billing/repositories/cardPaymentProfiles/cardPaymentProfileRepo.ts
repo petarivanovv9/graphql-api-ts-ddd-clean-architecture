@@ -18,4 +18,11 @@ export class CardPaymentProfileRepo {
 
     return cardPaymentProfiles;
   }
+
+  async delete(paymentProfileId: string | number) {
+    //
+    // delete card payment profile
+    //
+    console.log('deleting card payment profile with id: ', paymentProfileId);
+  }
 }

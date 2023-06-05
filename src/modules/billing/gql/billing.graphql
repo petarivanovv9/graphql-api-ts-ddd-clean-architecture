@@ -1,3 +1,9 @@
+type Mutation {
+  deleteCardPaymentProfile(
+    input: DeleteCardPaymentProfileInput!
+  ): DeleteCardPaymentProfilePayload
+}
+
 type Account {
   """
   Return the card payment profiles associated with the Account.
@@ -9,4 +15,13 @@ type CardPaymentProfile {
   id: ID!
   firstName: String
   lastName: String
+}
+
+input DeleteCardPaymentProfileInput {
+  id: ID!
+}
+
+type DeleteCardPaymentProfilePayload {
+  "Fake field so that we have a payload type for consistency."
+  _noop: Boolean
 }

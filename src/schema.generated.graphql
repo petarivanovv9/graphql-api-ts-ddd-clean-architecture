@@ -19,12 +19,26 @@ type Account {
   cardPaymentProfiles: [CardPaymentProfile!]!
 }
 
+type Mutation {
+  deleteCardPaymentProfile(input: DeleteCardPaymentProfileInput!): DeleteCardPaymentProfilePayload
+}
+
 type CardPaymentProfile {
   id: ID!
   firstName: String
   lastName: String
 }
 
+input DeleteCardPaymentProfileInput {
+  id: ID!
+}
+
+type DeleteCardPaymentProfilePayload {
+  "Fake field so that we have a payload type for consistency."
+  _noop: Boolean
+}
+
 schema {
   query: Query
+  mutation: Mutation
 }

@@ -20,6 +20,9 @@ export type Incremental<T> =
   | {
       [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never;
     };
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & {
+  [P in K]-?: NonNullable<T[P]>;
+};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string | number; output: string };
@@ -44,6 +47,25 @@ export type GqlCardPaymentProfile = {
   firstName?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   lastName?: Maybe<Scalars['String']['output']>;
+};
+
+export type GqlDeleteCardPaymentProfileInput = {
+  id: Scalars['ID']['input'];
+};
+
+export type GqlDeleteCardPaymentProfilePayload = {
+  __typename?: 'DeleteCardPaymentProfilePayload';
+  /** Fake field so that we have a payload type for consistency. */
+  _noop?: Maybe<Scalars['Boolean']['output']>;
+};
+
+export type GqlMutation = {
+  __typename?: 'Mutation';
+  deleteCardPaymentProfile?: Maybe<GqlDeleteCardPaymentProfilePayload>;
+};
+
+export type GqlMutationDeleteCardPaymentProfileArgs = {
+  input: GqlDeleteCardPaymentProfileInput;
 };
 
 export type GqlQuery = {
@@ -173,7 +195,10 @@ export type GqlResolversTypes = ResolversObject<{
   Account: ResolverTypeWrapper<AccountDto>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   CardPaymentProfile: ResolverTypeWrapper<GqlCardPaymentProfile>;
+  DeleteCardPaymentProfileInput: GqlDeleteCardPaymentProfileInput;
+  DeleteCardPaymentProfilePayload: ResolverTypeWrapper<GqlDeleteCardPaymentProfilePayload>;
   ID: ResolverTypeWrapper<Scalars['ID']['output']>;
+  Mutation: ResolverTypeWrapper<{}>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
   User: ResolverTypeWrapper<UserDto>;
@@ -184,7 +209,10 @@ export type GqlResolversParentTypes = ResolversObject<{
   Account: AccountDto;
   Boolean: Scalars['Boolean']['output'];
   CardPaymentProfile: GqlCardPaymentProfile;
+  DeleteCardPaymentProfileInput: GqlDeleteCardPaymentProfileInput;
+  DeleteCardPaymentProfilePayload: GqlDeleteCardPaymentProfilePayload;
   ID: Scalars['ID']['output'];
+  Mutation: {};
   Query: {};
   String: Scalars['String']['output'];
   User: UserDto;
@@ -232,6 +260,30 @@ export type GqlCardPaymentProfileResolvers<
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
+export type GqlDeleteCardPaymentProfilePayloadResolvers<
+  ContextType = any,
+  ParentType extends GqlResolversParentTypes['DeleteCardPaymentProfilePayload'] = GqlResolversParentTypes['DeleteCardPaymentProfilePayload'],
+> = ResolversObject<{
+  _noop?: Resolver<
+    Maybe<GqlResolversTypes['Boolean']>,
+    ParentType,
+    ContextType
+  >;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type GqlMutationResolvers<
+  ContextType = any,
+  ParentType extends GqlResolversParentTypes['Mutation'] = GqlResolversParentTypes['Mutation'],
+> = ResolversObject<{
+  deleteCardPaymentProfile?: Resolver<
+    Maybe<GqlResolversTypes['DeleteCardPaymentProfilePayload']>,
+    ParentType,
+    ContextType,
+    RequireFields<GqlMutationDeleteCardPaymentProfileArgs, 'input'>
+  >;
+}>;
+
 export type GqlQueryResolvers<
   ContextType = any,
   ParentType extends GqlResolversParentTypes['Query'] = GqlResolversParentTypes['Query'],
@@ -253,6 +305,8 @@ export type GqlUserResolvers<
 export type GqlResolvers<ContextType = any> = ResolversObject<{
   Account?: GqlAccountResolvers<ContextType>;
   CardPaymentProfile?: GqlCardPaymentProfileResolvers<ContextType>;
+  DeleteCardPaymentProfilePayload?: GqlDeleteCardPaymentProfilePayloadResolvers<ContextType>;
+  Mutation?: GqlMutationResolvers<ContextType>;
   Query?: GqlQueryResolvers<ContextType>;
   User?: GqlUserResolvers<ContextType>;
 }>;
