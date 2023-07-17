@@ -1,13 +1,9 @@
+import { injectable } from 'tsyringe';
 import { CardPaymentProfileRepo } from '../../repositories/cardPaymentProfiles/cardPaymentProfileRepo';
 
+@injectable()
 export class CardPaymentProfileQueries {
-  private cardPaymentProfileRepo;
-
-  // Note: should use Dependency Injection
-  // so we can inject the needed dependencies easily
-  constructor(cardPaymentProfileRepo: CardPaymentProfileRepo) {
-    this.cardPaymentProfileRepo = cardPaymentProfileRepo;
-  }
+  constructor(private cardPaymentProfileRepo: CardPaymentProfileRepo) {}
 
   async getByAccount(accountNumber: string) {
     const cardPaymentProfiles = await this.cardPaymentProfileRepo.getByAccount(

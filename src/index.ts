@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { readFileSync } from 'fs';
 import * as path from 'path';
 import { ApolloServer } from '@apollo/server';
