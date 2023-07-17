@@ -6,7 +6,7 @@ import { CardPaymentProfileQueries } from '../domain/queries/cardPaymentProfileQ
 const resolvers: GqlResolvers = {
   Mutation: {
     deleteCardPaymentProfile: async (_, { input }, __) => {
-      const mutation = new DeleteCardPaymentProfile();
+      const mutation = container.resolve(DeleteCardPaymentProfile);
       return mutation.execute(input);
     },
   },

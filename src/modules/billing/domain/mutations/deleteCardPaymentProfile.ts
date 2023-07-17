@@ -1,3 +1,4 @@
+import { injectable } from 'tsyringe';
 import { CardPaymentProfileRepo } from '../../repositories/cardPaymentProfiles/cardPaymentProfileRepo';
 
 type DeleteCardPaymentProfileParams = {
@@ -5,12 +6,9 @@ type DeleteCardPaymentProfileParams = {
   id: string | number;
 };
 
+@injectable()
 export class DeleteCardPaymentProfile {
-  private cardPaymentProfileRepo;
-
-  constructor() {
-    this.cardPaymentProfileRepo = new CardPaymentProfileRepo();
-  }
+  constructor(private cardPaymentProfileRepo: CardPaymentProfileRepo) {}
 
   async execute(params: DeleteCardPaymentProfileParams) {
     //
