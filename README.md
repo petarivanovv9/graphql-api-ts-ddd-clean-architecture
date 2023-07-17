@@ -65,6 +65,35 @@ We aim to design and create a highly scalable and maintainable API with GraphQL 
 
 > 💡 In the real world, developing a project from scratch by embracing all "super duper" practices, concepts and technologies is an overkill, in my opinion. Better, strive for incremental improvements by tailoring the "techy" methods and making them suits your needs and experience.
 
+## Usage
+
+Open `http://localhost:4000/`.
+
+Example query:
+
+```graphql
+query ViewerQuery {
+  viewer {
+    id
+    name
+    email
+
+    account {
+      id
+      email
+      company
+      vatNumber
+
+      cardPaymentProfiles {
+        id
+        firstName
+        lastName
+      }
+    }
+  }
+}
+```
+
 ## Notes
 
 Since the Account Domain is simpler, there's no need to introduce DDD and/or Clean Architecture. We can follow the Transaction Script Pattern.
