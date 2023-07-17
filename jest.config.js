@@ -1,6 +1,6 @@
 module.exports = {
   transform: {
-    '^.+\\.tsx?$': ['<rootDir>/jest-fix-istanbul-decorators.js'],
+    '^.+\\.tsx?$': 'ts-jest',
   },
 
   testPathIgnorePatterns: ['/dist/', '/node_modules/'],
