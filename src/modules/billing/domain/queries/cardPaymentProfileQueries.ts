@@ -1,7 +1,7 @@
-import { injectable } from 'tsyringe';
+import { Lifecycle, scoped } from 'tsyringe';
 import { CardPaymentProfileRepo } from '../../repositories/cardPaymentProfiles/cardPaymentProfileRepo';
 
-@injectable()
+@scoped(Lifecycle.ContainerScoped)
 export class CardPaymentProfileQueries {
   constructor(private cardPaymentProfileRepo: CardPaymentProfileRepo) {}
 

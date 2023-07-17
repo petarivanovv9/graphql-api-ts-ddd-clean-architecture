@@ -1,4 +1,4 @@
-import { injectable } from 'tsyringe';
+import { Lifecycle, scoped } from 'tsyringe';
 import { CardPaymentProfileRepo } from '../../repositories/cardPaymentProfiles/cardPaymentProfileRepo';
 
 type DeleteCardPaymentProfileParams = {
@@ -6,7 +6,7 @@ type DeleteCardPaymentProfileParams = {
   id: string | number;
 };
 
-@injectable()
+@scoped(Lifecycle.ContainerScoped)
 export class DeleteCardPaymentProfile {
   constructor(private cardPaymentProfileRepo: CardPaymentProfileRepo) {}
 
