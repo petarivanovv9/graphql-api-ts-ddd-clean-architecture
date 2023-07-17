@@ -7,6 +7,7 @@
     "noUnusedParameters": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "isolatedModules": true,
     "rootDirs": ["src"],
     "outDir": "dist",
     "typeRoots": ["./@types", "./node_modules/@types"]
