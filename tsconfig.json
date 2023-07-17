@@ -2,15 +2,15 @@
   "extends": "@tsconfig/node16/tsconfig.json",
 
   "compilerOptions": {
+    "preserveConstEnums": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "isolatedModules": true,
-    "rootDirs": ["src"],
-    "outDir": "dist",
-    "typeRoots": ["./@types", "./node_modules/@types"]
+    "sourceMap": true,
+    "outDir": "dist"
   },
 
   "include": ["src"],
