@@ -2,15 +2,15 @@
 
 Since that's an example, we should have a specific business case to build our software around it.
 
-Let's consider we're a Cloud Service Provider like Digital Ocean, AWS, etc. We provide developers cloud infrastructure-as-a-service platforms. For instance, if someone wants a cloud server to host their application, he comes to us.
+Let's consider we're a Cloud Service Provider like Digital Ocean, AWS, etc. We provide developers with a cloud infrastructure-as-a-service platform. For instance, if someone wants a cloud server to host their application, he comes to us.
 
 We allow only SMBs to register on our website. Each company can have multiple employees.
 
-The main business scenario we have in our example is managing billing related stuff like adding card payment methods, updating billing addresses, invoicing, etc. That's the most crucial area of our business.
+The main business scenario in our example is managing billing-related stuff like adding card payment methods, updating billing addresses, invoicing, etc. That's the most crucial area of our business.
 
-Our goal is to design and create a highly scalable and maintainable API with GraphQL around the above-mentioned business domain.
+We aim to design and create a highly scalable and maintainable API with GraphQL around the above-mentioned business domain.
 
-> 💡 We're modeling software to solve complex real life business problems.
+> 💡 We're modeling software to solve complex real-life business problems.
 
 ## Domains
 
@@ -18,8 +18,13 @@ Our goal is to design and create a highly scalable and maintainable API with Gra
 
   - Account & User entities (subdomains)
 
+  ![](./docs/account-management-bounded-context.png)
+
 - Billing:
-  - Card Payment Profile entity (subdomain)
+
+  - Card Payment Profile & Invoice entities (subdomains)
+
+  ![](./docs/billing-management-bounded-context.png)
 
 ## Used Technologies and Tools:
 
@@ -29,6 +34,16 @@ Our goal is to design and create a highly scalable and maintainable API with Gra
 - [GraphQL Tools](https://the-guild.dev/graphql/tools)
   - [Schema Merging](https://the-guild.dev/graphql/tools/docs/schema-merging)
   - [Code Generation](https://the-guild.dev/graphql/codegen) - TypeScript types based on our GraphQL Schema
+
+## Architecture
+
+### Before
+
+![](docs/before-architecture.png)
+
+### After
+
+![](docs/after-architecture.png)
 
 ## Architectural Principles:
 
