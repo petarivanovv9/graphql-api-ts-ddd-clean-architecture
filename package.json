@@ -21,7 +21,9 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "4.7.1",
-    "graphql": "16.6.0"
+    "graphql": "16.6.0",
+    "reflect-metadata": "0.1.13",
+    "tsyringe": "4.8.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "4.0.0",
