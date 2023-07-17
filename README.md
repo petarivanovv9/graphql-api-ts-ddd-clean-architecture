@@ -1,5 +1,7 @@
 # An example of a GraphQL API with TypeScript and Apollo-Server by using Domain-Driven Design and Clean Architecture principles.
 
+🚧🚧🚧 This repository is under development 🚧🚧🚧.
+
 Since that's an example, we should have a specific business case to build our software around it.
 
 Let's consider we're a Cloud Service Provider like Digital Ocean, AWS, etc. We provide developers with a cloud infrastructure-as-a-service platform. For instance, if someone wants a cloud server to host their application, he comes to us.
