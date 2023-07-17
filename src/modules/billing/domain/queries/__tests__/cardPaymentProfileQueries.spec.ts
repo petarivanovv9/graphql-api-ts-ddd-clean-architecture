@@ -4,29 +4,45 @@
 // - only testing the logic inside this class
 //
 
-// const setupCardPaymentProfileQueries = () => {
-//   const cardPaymentProfileRepo = mockInstance(CardPaymentProfileRepo);
-//   const cardPaymentProfileQueries = new CardPaymentProfileQueries(
-//     cardPaymentProfileRepo,
-//   );
-//   return {
-//     cardPaymentProfileQueries,
-//   };
-// };
+import { mockInstance } from '../../../../../tests/utils';
+import { CardPaymentProfileRepo } from '../../../repositories/cardPaymentProfiles/cardPaymentProfileRepo';
+import { CardPaymentProfile } from '../../models/cardPaymentProfile';
+import { CardPaymentProfileQueries } from '../cardPaymentProfileQueries';
 
-// describe('CardPaymentProfileQueries', () => {
-//   describe('getByAccount', () => {
-//     it('should return card payment profiles', async () => {
-//       const { cardPaymentProfileQueries, cardPaymentProfileRepo } =
-//         setupCardPaymentProfileQueries();
+const setupCardPaymentProfileQueries = () => {
+  const cardPaymentProfileRepo = mockInstance(CardPaymentProfileRepo);
 
-//       const result = cardPaymentProfileQueries.getByAccount('GQL-ID-A-1');
+  const cardPaymentProfileQueries = new CardPaymentProfileQueries(
+    cardPaymentProfileRepo,
+  );
 
-//       expect(cardPaymentProfileRepo.getByAccount).toHaveBeenCalledWith(
-//         'GQL-ID-A-1',
-//       );
+  return {
+    cardPaymentProfileRepo,
+    cardPaymentProfileQueries,
+  };
+};
 
-//       expect(...);
-//     });
-//   });
-// });
+describe('CardPaymentProfileQueries', () => {
+  describe('getByAccount', () => {
+    it('should return card payment profiles', async () => {
+      const { cardPaymentProfileQueries, cardPaymentProfileRepo } =
+        setupCardPaymentProfileQueries();
+
+      const cardPaymentProfile = CardPaymentProfile.create(
+        {
+          firstName: 'john',
+          lastName: 'doe',
+        },
+        '123',
+      );
+
+      cardPaymentProfileRepo.getByAccount.mockResolvedValue([
+        cardPaymentProfile,
+      ]);
+
+      const result = await cardPaymentProfileQueries.getByAccount('GQL-ID-A-1');
+
+      expect(result[0].firstName).toEqual('john');
+    });
+  });
+});

@@ -4,6 +4,7 @@
   "extends": [
     "airbnb-base",
     "airbnb-typescript/base",
+    "plugin:jest/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
@@ -14,7 +15,8 @@
   },
   "root": true,
   "env": {
-    "node": true
+    "node": true,
+    "jest": true
   },
   "rules": {
     // Any is used sometimes to balance complexity and value of TypeScript
