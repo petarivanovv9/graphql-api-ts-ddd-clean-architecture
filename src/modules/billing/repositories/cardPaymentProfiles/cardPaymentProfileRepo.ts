@@ -12,9 +12,13 @@ const paymentSourcesData = [
 
 export class CardPaymentProfileRepo {
   async getByAccount(accountEmail: string) {
-    const cardPaymentProfiles = paymentSourcesData
-      .filter((x) => x.accountEmail === accountEmail)
-      .map((x) => CardPaymentProfileMapper.toDomain(x));
+    const filteredPaymentSources = paymentSourcesData.filter(
+      (x) => x.accountEmail === accountEmail,
+    );
+
+    const cardPaymentProfiles = filteredPaymentSources.map((x) =>
+      CardPaymentProfileMapper.toDomain(x),
+    );
 
     return cardPaymentProfiles;
   }

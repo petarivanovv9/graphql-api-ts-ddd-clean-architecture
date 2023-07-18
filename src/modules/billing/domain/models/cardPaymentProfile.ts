@@ -36,6 +36,10 @@ export class CardPaymentProfile {
     this.#props.lastName = value;
   }
 
+  toJSON(): { id: string } & CardPaymentProfileProps {
+    return { id: this.#id, ...this.#props };
+  }
+
   static create(props: CardPaymentProfileProps, id: string) {
     return new CardPaymentProfile(props, id);
   }
