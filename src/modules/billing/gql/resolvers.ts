@@ -12,11 +12,8 @@ const resolvers: GqlResolvers = {
   },
   Account: {
     cardPaymentProfiles: async (account) => {
-      const cardPaymentProfileQueries = container.resolve(
-        CardPaymentProfileQueries,
-      );
-
-      return cardPaymentProfileQueries.getByAccount(account.email);
+      const query = container.resolve(CardPaymentProfileQueries);
+      return query.getByAccount(account.email);
     },
   },
 };
