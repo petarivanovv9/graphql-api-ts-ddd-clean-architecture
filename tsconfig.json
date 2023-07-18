@@ -10,7 +10,7 @@
     "emitDecoratorMetadata": true,
     "isolatedModules": true,
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "./dist"
   },
 
   "include": ["src"],
