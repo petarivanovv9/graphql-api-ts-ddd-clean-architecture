@@ -1,6 +1,6 @@
 import { CardPaymentProfileMapper } from './cardPaymentProfileMapper';
 
-const cardPaymentProfilesData = [
+const paymentSourcesData = [
   {
     id: 'GQL-ID-CPM-1',
     card: {
@@ -12,7 +12,7 @@ const cardPaymentProfilesData = [
 
 export class CardPaymentProfileRepo {
   async getByAccount(accountEmail: string) {
-    const cardPaymentProfiles = cardPaymentProfilesData
+    const cardPaymentProfiles = paymentSourcesData
       .filter((x) => x.accountEmail === accountEmail)
       .map((x) => CardPaymentProfileMapper.toDomain(x));
 
