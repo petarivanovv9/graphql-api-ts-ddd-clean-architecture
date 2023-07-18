@@ -1,3 +1,5 @@
+import { Lifecycle, scoped } from 'tsyringe';
+
 const accountsData = [
   {
     id: 'GQL-ID-A-1',
@@ -13,6 +15,7 @@ const accountsData = [
   },
 ];
 
+@scoped(Lifecycle.ContainerScoped)
 export class AccountQueries {
   // Note: could be static.
   async getAccount(id: string) {

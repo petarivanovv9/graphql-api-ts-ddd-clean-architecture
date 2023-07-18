@@ -1,3 +1,4 @@
+import { container } from 'tsyringe';
 import { GqlResolvers, GqlModule } from '../../gqlModule';
 import { UserDto } from '../api';
 import { AccountQueries } from '../domain/queries/accountQueries';
@@ -19,9 +20,8 @@ const resolvers: GqlResolvers = {
 
   User: {
     account: async (user, _, __) => {
-      const accountQueries = new AccountQueries();
-      const account = await accountQueries.getAccount(user.accountId);
-      return account;
+      const query = container.resolve(AccountQueries);
+      return query.getAccount(user.accountId);
     },
   },
 
